@@ -1,0 +1,7 @@
+create table coches (   id int(10) auto_increment primary key, 
+                        marca varchar(100) not null, 
+                        modelo varchar(100) not null, 
+                        matricula char(7) not null , 
+                        bastidor int(10) not null ,
+                        potencia int (3),
+                        propietario varchar(100));
