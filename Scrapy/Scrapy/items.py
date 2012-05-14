@@ -5,7 +5,12 @@
 
 from scrapy.item import Item, Field
 
-class ScrapyItem(Item):
-    # define the fields for your item here like:
-    # name = Field()
-    pass
+class Post(Item):
+    titulo = Field()
+    contenido = Field()
+    imagenes = Field()
+    categorias = Field()
+    tags = Field()
+    
+    
+ 
