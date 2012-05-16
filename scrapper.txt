@@ -1,0 +1,10 @@
+Jose Maria Valenzuela Perez
+------------------------------
+
+Repositorio git donde esta alojado mi scrapper
+
+    https://github.com/JoseVP/Python-Avanzado/tree/master/Scrapy
+
+Ejecución del scrapper:
+
+    scrapy crawl mispider
