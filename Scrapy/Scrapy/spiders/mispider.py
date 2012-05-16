@@ -28,11 +28,13 @@ class MiSpider(CrawlSpider):
         
         elemento['titulo'] = hxs.select('//h1[@class="entry-title"]/text()').extract()
         
-        elemento['contenido'] = hxs.select('//div[@class="entry-content"]/p').extract()
+        elemento['contenido'] = hxs.select('//div[@class="entry-content"]').extract()
         
         elemento['categorias'] = hxs.select('//span[@class="entry-categories"]/a/text()').extract()
         
-        elemento['imagenes'] = hxs.select('//div[@class="entry-content"]/*/img').extract()
+        elemento['imagenes'] = hxs.select('//div[@class="entry-content"]/p//img').extract()
+        
+        
         
         elemento['tags'] = hxs.select('//span[@class="entry-tags"]/a/text()').extract()
         
