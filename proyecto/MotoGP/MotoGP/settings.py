@@ -13,3 +13,6 @@ SPIDER_MODULES = ['MotoGP.spiders']
 NEWSPIDER_MODULE = 'MotoGP.spiders'
 USER_AGENT = '%s/%s' % (BOT_NAME, BOT_VERSION)
 
+ITEM_PIPELINES = [
+                    'MotoGP.pipelines.CircuitosPipeline',
+]

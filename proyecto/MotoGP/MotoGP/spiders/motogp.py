@@ -25,7 +25,7 @@ class Circuitos(CrawlSpider):
         
         #import ipdb
         #ipdb.set_trace()
-        
+        elemento['gran_premio'] = hxs.select('//li[@class="selected"]/text()').extract()
         elemento['nombre'] = hxs.select('//div[@id="info_track"]/h2/text()').extract()
         elemento['longitud'] = hxs.select('//div[@class="circuit_info"]/p[2]/text()').extract()
         elemento['ancho'] = hxs.select('//div[@class="circuit_info"]/p[3]/text()').extract()
@@ -35,3 +35,5 @@ class Circuitos(CrawlSpider):
         elemento['fecha_construccion'] = hxs.select('//div[@class="circuit_info"]/p[7]/text()').extract()
         elemento['fecha_modificacion'] = hxs.select('//div[@class="circuit_info"]/p[8]/text()').extract()
         return elemento
+        
+        

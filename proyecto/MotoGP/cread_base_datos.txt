@@ -1,0 +1,14 @@
+CREATE DATABASE MotogpDB charset utf8;
+
+GRANT ALL ON MotogpDB.* TO 'admin'@'localhost' IDENTIFIED BY 'motogpadmin';
+
+CREATE TABLE circuitos (id int(10) auto_increment primary key, 
+                        gran_premio varchar(100) not null, 
+                        nombre varchar(100) not null,
+                        longitud varchar(100),
+                        anchura varchar(100),
+                        curvas_der int(2),
+                        curvas_izq int(2),
+                        recta_larga varchar(100),
+                        fecha_construccion varchar(100),
+                        fecha_modificacion varchar(100))ENGINE=INNODB;
