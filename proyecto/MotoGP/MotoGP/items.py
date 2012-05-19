@@ -2,14 +2,14 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/topics/items.html
-
+#coding=utf-8 
 from scrapy.item import Item, Field
 
 class Circuito(Item):
     # define the fields for your item here like:
     # name = Field()
     nombre = Field()
-    
+    gran_premio = Field()
     longitud = Field()
     ancho = Field()
     curvas_derecha = Field()

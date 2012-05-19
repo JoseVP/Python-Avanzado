@@ -1,8 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkDialog" id="dialogo_actualizar">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Actualizando Circuitos</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <property name="has_resize_grip">False</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox1">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="dialog-action_area1">
+            <property name="can_focus">False</property>
+            <property name="layout_style">center</property>
+            <child>
+              <object class="GtkButton" id="button_aceptar">
+                <property name="label" translatable="yes">Si</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="valign">end</property>
+                <property name="margin_left">1</property>
+                <property name="margin_top">1</property>
+                <property name="use_action_appearance">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button_cancelar">
+                <property name="label" translatable="yes">No</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="vexpand">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="label_actualizando">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="vexpand">True</property>
+                <property name="label" translatable="yes">¿Desea Actualizar la informacion 
+de todos los circuitos? </property>
+                <property name="justify">center</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="1">button_aceptar</action-widget>
+      <action-widget response="2">button_cancelar</action-widget>
+    </action-widgets>
+  </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">MotoGP App</property>
+    <property name="icon">resources/icono.png</property>
     <signal name="remove" handler="onDeleteWindow" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
@@ -13,6 +109,49 @@
           <object class="GtkMenuBar" id="menubar1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <child>
+              <object class="GtkMenuItem" id="Acciones">
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Acciones</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkMenuItem" id="menu_actualizar_cir">
+                        <property name="use_action_appearance">False</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Ac_tualizar Circuitos</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="onActualizarCircuitos" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                        <property name="use_action_appearance">False</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="imagemenuitem5">
+                        <property name="label">gtk-quit</property>
+                        <property name="use_action_appearance">False</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="onDeleteWindow" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
             <child>
               <object class="GtkMenuItem" id="menuitem1">
                 <property name="use_action_appearance">False</property>
@@ -204,24 +343,6 @@
                         <signal name="activate" handler="onVerCircuito" swapped="no"/>
                       </object>
                     </child>
-                    <child>
-                      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
-                        <property name="use_action_appearance">False</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem" id="imagemenuitem5">
-                        <property name="label">gtk-quit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                        <signal name="activate" handler="onDeleteWindow" swapped="no"/>
-                      </object>
-                    </child>
                   </object>
                 </child>
               </object>
@@ -259,15 +380,42 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="label_nombre">
+          <object class="GtkBox" id="box4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Nombre del Circuito</property>
+            <child>
+              <object class="GtkImage" id="imagen_bandera">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="margin_left">129</property>
+                <property name="margin_top">3</property>
+                <property name="stock">gtk-missing-image</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_nombre">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="label" translatable="yes">Nombre del Circuito</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">8</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="padding">8</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -404,11 +552,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label8">
+                  <object class="GtkLabel" id="texto_ancho">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -418,11 +565,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label9">
+                  <object class="GtkLabel" id="texto_longitud">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -432,11 +578,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label10">
+                  <object class="GtkLabel" id="texto_curvas_der">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -446,11 +591,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label11">
+                  <object class="GtkLabel" id="texto_curvas_izq">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -460,11 +604,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label12">
+                  <object class="GtkLabel" id="texto_fecha_const">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -474,11 +617,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label13">
+                  <object class="GtkLabel" id="texto_recta">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -488,11 +630,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label14">
+                  <object class="GtkLabel" id="texto_fecha_mod">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_left">20</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
