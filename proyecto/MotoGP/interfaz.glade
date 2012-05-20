@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkAboutDialog" id="about_dialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="type_hint">dialog</property>
+    <property name="program_name">MotoGP App 2012</property>
+    <property name="version">V 1.0</property>
+    <property name="authors">José María Valenzuela Pérez</property>
+    <property name="documenters">José María Valenzuela Pérez</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="aboutdialog-vbox1">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="aboutdialog-action_area1">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkDialog" id="dialogo_actualizar">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -95,101 +126,85 @@ de todos los circuitos? </property>
       <action-widget response="2">button_cancelar</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkImage" id="imagen_boton_bandera">
-    <property name="visible">True</property>
+  <object class="GtkMessageDialog" id="dialogo_error_tablas">
     <property name="can_focus">False</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera10">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera11">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera12">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera13">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera14">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera15">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera16">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera17">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera3">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera4">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera5">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera6">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera7">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera8">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
-  </object>
-  <object class="GtkImage" id="imagen_boton_bandera9">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">ERROR EN LA BASE DE DATOS</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="type_hint">menu</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="startup_id">2</property>
+    <property name="message_type">warning</property>
+    <property name="text" translatable="yes">Hay  un error con las tablas de informacion.
+Es necesario actualizar toda la información para poder continuar
+
+¿Desea actualizar la información ahora?</property>
+    <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="messagedialog-vbox1">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="messagedialog-action_area1">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="boton_aceptar_error">
+                <property name="label" translatable="yes">Aceptar</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="clicked" handler="onActualizarCircuitos" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="boton_cancelar_error">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
+                <signal name="clicked" handler="onDeleteWindow" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="1">boton_aceptar_error</action-widget>
+      <action-widget response="2">boton_cancelar_error</action-widget>
+    </action-widgets>
   </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">MotoGP App</property>
     <property name="window_position">mouse</property>
     <property name="icon">resources/icono.png</property>
-    <signal name="remove" handler="onDeleteWindow" swapped="no"/>
+    <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
@@ -456,6 +471,7 @@ de todos los circuitos? </property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="onShowAbout" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -1857,6 +1873,7 @@ de todos los circuitos? </property>
   </object>
   <object class="GtkWindow" id="window2">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">MotoGP App</property>
     <property name="window_position">mouse</property>
     <property name="icon">resources/icono.png</property>
     <signal name="remove" handler="onDeleteWindow" swapped="no"/>
@@ -1876,7 +1893,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1895,7 +1911,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera1</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1914,7 +1929,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera2</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1933,7 +1947,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera3</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1952,7 +1965,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera4</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1971,7 +1983,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera5</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -1990,7 +2001,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera6</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2009,7 +2019,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera7</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2028,7 +2037,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera8</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2047,7 +2055,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera9</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2066,7 +2073,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera10</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2085,7 +2091,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera11</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2104,7 +2109,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera12</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2122,8 +2126,8 @@ de todos los circuitos? </property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="hexpand">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera13</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2142,7 +2146,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera14</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2161,7 +2164,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera15</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2180,7 +2182,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera16</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2199,7 +2200,6 @@ de todos los circuitos? </property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_action_appearance">False</property>
-            <property name="image">imagen_boton_bandera17</property>
             <property name="image_position">right</property>
             <signal name="clicked" handler="onInitialCircuit" swapped="no"/>
           </object>
@@ -2215,6 +2215,7 @@ de todos los circuitos? </property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Seleccione un Circuito</property>
+            <signal name="destroy" handler="onDeleteWindow" swapped="no"/>
           </object>
           <packing>
             <property name="left_attach">0</property>

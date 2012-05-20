@@ -6,11 +6,10 @@
 from scrapy.item import Item, Field
 
  
-#{'record':Field(),'temporada':Field(),'piloto':Field(),'motocicleta':Field(),'tiempo':Field(),'velocidad':Field()}
+
 
 class Circuito(Item):
-    # define the fields for your item here like:
-    # name = Field()
+
     nombre = Field()
     gran_premio = Field()
     longitud = Field()
@@ -24,47 +23,3 @@ class Circuito(Item):
     records = Field()
     
     
-    moto3 = {   'fp1' : Field(),
-                'fp2' : Field(),
-                'fp3' : Field(),
-                'qp' : Field(),
-                'wup' : Field(),
-                'clima' : Field(),
-                'condicion de la pista' : Field(),
-                'temperatura aire' : Field(),
-                'humedad' : Field(),
-                'temperatura pista' : Field(),
-                'vuelta rapida' : Field(),
-                'record circuito' : Field(),
-                'mejor vuelta' : Field()
-            }
-    moto2 = {   'fp1' : Field(),
-                'fp2' : Field(),
-                'fp3' : Field(),
-                'qp' : Field(),
-                'wup' : Field(),
-                'clima' : Field(),
-                'condicion de la pista' : Field(),
-                'temperatura aire' : Field(),
-                'humedad' : Field(),
-                'temperatura pista' : Field(),
-                'vuelta rapida' : Field(),
-                'record circuito' : Field(),
-                'mejor vuelta' : Field()
-            }
-    motogp = {   'fp1' : Field(),
-                'fp2' : Field(),
-                'fp3' : Field(),
-                'qp' : Field(),
-                'wup' : Field(),
-                'clima' : Field(),
-                'condicion de la pista' : Field(),
-                'temperatura aire' : Field(),
-                'humedad' : Field(),
-                'temperatura pista' : Field(),
-                'vuelta rapida' : Field(),
-                'record circuito' : Field(),
-                'mejor vuelta' : Field()
-            }
-
-

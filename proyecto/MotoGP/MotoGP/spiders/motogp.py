@@ -25,8 +25,7 @@ class Circuitos(CrawlSpider):
         
         elemento = Circuito()
         
-        #import ipdb
-        #ipdb.set_trace()
+        ##Obtenemos la informacion
         elemento['gran_premio'] = hxs.select('//li[@class="selected"]/a/text()').extract()
         if not elemento['gran_premio']:
             elemento['gran_premio'] = hxs.select('//li[@class="selected last"]/a/text()').extract()
@@ -39,6 +38,7 @@ class Circuitos(CrawlSpider):
         elemento['fecha_construccion'] = hxs.select('//div[@class="circuit_info"]/p[7]/text()').extract()
         elemento['fecha_modificacion'] = hxs.select('//div[@class="circuit_info"]/p[8]/text()').extract()
         
+        #en records guardamos toda la tabla, ya se procesara mas detenidamente en el pipeline
         elemento['records'] = hxs.select('//div[@id="records"]/table/tbody/tr').extract()
 
         

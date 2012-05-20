@@ -19,7 +19,7 @@ class CircuitosPipeline(object):
         
      
         
-        
+        #Creamos la gran sentencia para introducir los datos del circuito
         query = "INSERT INTO circuitos (gran_premio,nombre,longitud,anchura,curvas_der,curvas_izq,recta_larga,fecha_construccion,fecha_modificacion) VALUES ('"
         
         query+=item['gran_premio'][0] + "','"
@@ -37,9 +37,10 @@ class CircuitosPipeline(object):
         
 
         micursor.execute(query)
-        
+        #ejecutamos commit para que se haga efectiva la insercion
         Conexion.commit()
         
+        #Obtenemos el id del circuito recien insertado para usarla como clave externa en la base de datos de los records
         query = "SELECT id FROM circuitos WHERE gran_premio = '%s'" % item['gran_premio'][0]
         micursor.execute(query)
         id_circuito = micursor.fetchone()
@@ -47,10 +48,15 @@ class CircuitosPipeline(object):
         
         for fila in item['records']: 
             
+            #separamos cada fila de la tabla en columnas mediante la particion del string por la etiqueta </td>
             columnas = fila.split('</td>')
+            
+            #Si la informacion limpia de la primera columna es una categoria de motos
+            #la guardamos en la variable categoria para usarla en las inserciones posteriores
             if re.sub(r'<[^>]*?>','',columnas[0]) in ['MotoGP','Moto2','125cc']:
                 categoria = re.sub(r'<[^>]*?>','',columnas[0])
-                
+            
+            #Si la fila no empieza por la categoria se limpia de etiquetas html cada columna para quedarnos con la informacion esencial    
             else:
                 query= 'INSERT INTO records_circuitos (id_circuito,categoria,record,temporada,piloto,motocicleta,tiempo,velocidad) VALUES ("%s","%s","' % (id_circuito['id'],categoria)
                 for i in range(0,6):
@@ -62,12 +68,12 @@ class CircuitosPipeline(object):
                
                 micursor.execute(query)
         
-                
+        #ejecutamos commit de todas las inserciones anteriores        
         Conexion.commit()
                 
 
         
-        
+        #Cerramos la conexion
         micursor.close () 
         Conexion.close()
         return item
