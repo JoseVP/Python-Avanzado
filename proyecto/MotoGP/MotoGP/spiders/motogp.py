@@ -38,6 +38,11 @@ class Circuitos(CrawlSpider):
         elemento['recta_larga'] = hxs.select('//div[@class="circuit_info"]/p[6]/text()').extract()
         elemento['fecha_construccion'] = hxs.select('//div[@class="circuit_info"]/p[7]/text()').extract()
         elemento['fecha_modificacion'] = hxs.select('//div[@class="circuit_info"]/p[8]/text()').extract()
+        
+        elemento['records'] = hxs.select('//div[@id="records"]/table/tbody/tr').extract()
+
+        
+        
         return elemento
         
     

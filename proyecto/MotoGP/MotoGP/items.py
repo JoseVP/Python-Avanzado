@@ -5,6 +5,9 @@
 #coding=utf-8 
 from scrapy.item import Item, Field
 
+ 
+#{'record':Field(),'temporada':Field(),'piloto':Field(),'motocicleta':Field(),'tiempo':Field(),'velocidad':Field()}
+
 class Circuito(Item):
     # define the fields for your item here like:
     # name = Field()
@@ -17,6 +20,9 @@ class Circuito(Item):
     recta_larga = Field()
     fecha_construccion = Field()
     fecha_modificacion = Field()
+    
+    records = Field()
+    
     
     moto3 = {   'fp1' : Field(),
                 'fp2' : Field(),

@@ -39,6 +39,35 @@ class CircuitosPipeline(object):
         micursor.execute(query)
         
         Conexion.commit()
+        
+        query = "SELECT id FROM circuitos WHERE gran_premio = '%s'" % item['gran_premio'][0]
+        micursor.execute(query)
+        id_circuito = micursor.fetchone()
+        
+        
+        for fila in item['records']: 
+            
+            columnas = fila.split('</td>')
+            if re.sub(r'<[^>]*?>','',columnas[0]) in ['MotoGP','Moto2','125cc']:
+                categoria = re.sub(r'<[^>]*?>','',columnas[0])
+                
+            else:
+                query= 'INSERT INTO records_circuitos (id_circuito,categoria,record,temporada,piloto,motocicleta,tiempo,velocidad) VALUES ("%s","%s","' % (id_circuito['id'],categoria)
+                for i in range(0,6):
+                    query+=re.sub(r'<[^>]*?>','',columnas[i])
+                    if i != 5:
+                        query += '","'
+                    else:
+                        query += '")'
+               
+                micursor.execute(query)
+        
+                
+        Conexion.commit()
+                
+
+        
+        
         micursor.close () 
         Conexion.close()
         return item

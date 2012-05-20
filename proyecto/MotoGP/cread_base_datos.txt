@@ -12,3 +12,17 @@ CREATE TABLE circuitos (id int(10) auto_increment primary key,
                         recta_larga varchar(100),
                         fecha_construccion varchar(100),
                         fecha_modificacion varchar(100))ENGINE=INNODB;
+                        
+                        
+CREATE TABLE records_circuitos (id int(10) auto_increment primary key,
+                                id_circuito int(10) not null,
+                                categoria varchar(100) not null,
+                                record varchar(100) not null,
+                                temporada int(4) not null,
+                                piloto varchar(100) not null,
+                                motocicleta varchar(100),
+                                tiempo varchar(100),
+                                velocidad varchar(100),
+                                foreign key (id_circuito) references circuitos(id) on delete cascade
+                                )ENGINE=INNODB;
+                                
