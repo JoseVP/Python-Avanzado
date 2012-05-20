@@ -1,10 +1,16 @@
 Proyecto de Jose María Valenzuela Perez para el curso de Programacion Avanzada en Python
 ---------------------------------------------------------------------------------------
+
+EJECUCION DEL PROGRAMA: python motogp_app.py
+
+---------------------------------------------------------------------------------------
+
 Esta aplicacion en python consiste en un scrapper que obtiene informacion
 de los circuitos del campeonato actual de MotoGP asi como de los records
 de cada circuito de la pagina oficial de MotoGP "www.motogp.com"
 
 Esta informacion se muestra mediante una ventana de forma clara y sencilla
+
 
 
 Para la ejecución de este programa es indispensable tener instalado
