@@ -1,0 +1,10 @@
+Jose Maria Valenzuela Perez
+------------------------------
+
+Repositorio git donde esta alojado mi proyecto final
+
+   https://github.com/JoseVP/Python-Avanzado/tree/master/proyecto/MotoGP
+
+Ejecución de la aplicacion MotoGP:
+
+    python motogp_app.py
