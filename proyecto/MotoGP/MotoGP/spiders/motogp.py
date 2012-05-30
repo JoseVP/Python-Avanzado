@@ -45,6 +45,44 @@ class Circuitos(CrawlSpider):
         
         return elemento
         
-    
-        
+
+
+
+
+class Pilotos(CrawlSpider):
+    name = 'pilotos'
+    allowed_domains = ['www.motogp.com']
+    start_urls = ['http://www.motogp.com/es/riders/MotoGP']
+
+
+    rules = (
+
+            Rule(SgmlLinkExtractor(allow=('/riders/.+' )), callback='parse_piloto'),
+            )
+
+
+
+    def parse_piloto(self, response):
+
+        hxs = HtmlXPathSelector(response)
+
+        elemento = Piloto()
+
+        elemento['nombre'] = hxs.select('//div[@class="details floatl"]/p[@class="name"]/text()').extract()
+        elemento['equipo'] = hxs.select('//div[@class="details floatl"]/p[@class="team"]/text()').extract()
+        elemento['moto'] = hxs.select('//div[@class="details floatl"]/p[3]/text()').extract()
+        elemento['lugar_nacimiento'] = hxs.select('//div[@class="details floatl"]/p[4]/text()').extract()
+        elemento['fecha_nacimiento'] = hxs.select('//div[@class="details floatl"]/p[5]/text()').extract()
+        elemento['peso'] = hxs.select('//div[@class="details floatl"]/p[6]/text()').extract()
+        elemento['altura'] = hxs.select('//div[@class="details floatl"]/p[7]/text()').extract()
+        elemento['dorsal'] = hxs.select('//div[@class="details floatl"]/span[@class="number"]/text()').extract()
+        elemento['pais'] = hxs.select('//div[@class="details floatl"]/img').extract()
+
+
+        elemento['estadisticas'] = hxs.select('//div[@class="career-statistics"]/table/tbody').extract()
+
+        elemento['perfil'] = hxs.select('//div[@class="rider_bio_profile"]/text()').extract()
+
+
+        return elemento
         

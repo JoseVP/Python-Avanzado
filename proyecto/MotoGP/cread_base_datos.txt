@@ -25,4 +25,39 @@ CREATE TABLE records_circuitos (id int(10) auto_increment primary key,
                                 velocidad varchar(100),
                                 foreign key (id_circuito) references circuitos(id) on delete cascade
                                 )ENGINE=INNODB;
+
+
+CREATE TABLE pilotos ( id int(10) auto_increment primary key,
+                       nombre varchar(100) not null,
+                       fecha_nacimiento date,
+                       lugar_nacimiento varchar(100),
+                       altura int(3),
+                       peso int(3),
+                       moto varchar(100),
+                       equipo varchar(100),
+                       categoria varchar(100)
+                       )ENGINE=INNODB;
+
+
+                       
+                                
+CREATE TABLE pilotos_estadisticas ( id int(10) auto_increment primary key,
+                                    id_piloto int(10) not null,
+                                    temporada int(4) not null,
+                                    categoria varchar(100),
+                                    salidas int(4),
+                                    primero int(4),
+                                    segundo int(4),
+                                    tercero int(4),
+                                    poles int(4),
+                                    moto varchar(4),
+                                    puntos int(4),
+                                    posicion int(4),
+                                    foreign key (id_piloto) references pilotos(id) on delete cascade
+                                    )ENGINE=INNODB;
+
+
+                                
+                                
+                               
                                 

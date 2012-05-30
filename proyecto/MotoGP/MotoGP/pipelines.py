@@ -13,6 +13,9 @@ class CircuitosPipeline(object):
     
     
     def process_item(self, item, spider):
+
+        import ipbd
+        ipbd.set_trace()
         
         Conexion = MySQLdb.connect(host='localhost', user='admin',passwd='motogpadmin', db='MotogpDB') 
         micursor = Conexion.cursor(MySQLdb.cursors.DictCursor)
